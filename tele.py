@@ -33,4 +33,4 @@ def webhook():
 
 
 if __name__ == 'main':
-    tele.run()
+    app.run()
