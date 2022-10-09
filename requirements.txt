@@ -1,3 +1,5 @@
-python-time
-Flask
+
 pyTelegramBotAPI
+flask
+gunicorn
+python-binance
