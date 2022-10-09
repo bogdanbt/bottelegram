@@ -28,3 +28,9 @@ def webhook():
     if data['signal']=="testmono":
         text=symbol+'signaltest'
         bot.send_message(CHAT_ID, text)
+
+    return{"signal":"success"}
+
+
+if __name__ == 'main':
+    app.run()
