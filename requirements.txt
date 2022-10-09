@@ -1,4 +1,4 @@
-pyTelegramBotAPI
-Flask
+flask
 gunicorn
 python-binance
+pyTelegramBotAPI
