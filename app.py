@@ -13,13 +13,15 @@ CHAT_ID='425745139'
 BOTTOKEN='5545278299:AAHIqGnUM6mrgB0fe8DWsUMZrrpDU1BQ8jI'
 bot=telebot.TeleBot(BOTTOKEN)
 
-symbols_list=['1INCH','AAVE','ADA','ALGO','ALICE','ALPHA','ANKR','ANT','APE','API3','AR','ARPA','ATA','ATOM','AUDIO','AVAX','AXS'
+symbols_list1=['1INCH','AAVE','ADA','ALGO','ALICE','ALPHA','ANKR','ANT','APE','API3','AR','ARPA','ATA','ATOM','AUDIO','AVAX','AXS'
 
-,'BAKE','BAL','BAND','BAT','BCH','BEL','BLZ','BNB','BNX','BTC','C98','CELO','CELR','CHR','CHZ','COMP','COTI','CRV',
+,'BAKE','BAL','BAND','BAT','BCH','BEL','BLZ','BNB','BNX','BTC','C98','CELO','CELR','CHR','CHZ','COMP','COTI','CRV']
 
+symbols_list2=[
 'CTK',
 'CTSI',
 'CVC',
+
 'DAR',
 'DASH',
 'DENT',
@@ -37,8 +39,8 @@ symbols_list=['1INCH','AAVE','ADA','ALGO','ALICE','ALPHA','ANKR','ANT','APE','AP
 'FLM',
 'FLOW',
 'FTM',
-'FTT',
-'GAL',
+'FTT']
+symbols_list3=['GAL',
 'GALA',
 'GMT',
 'GRT',
@@ -60,8 +62,8 @@ symbols_list=['1INCH','AAVE','ADA','ALGO','ALICE','ALPHA','ANKR','ANT','APE','AP
 'LINA',
 'LINK',
 'LIT',
-'LPT',
-'LRC',
+'LPT']
+symbols_list4=['LRC',
 'LTC',
 'MANA',
 'MASK',
@@ -81,8 +83,8 @@ symbols_list=['1INCH','AAVE','ADA','ALGO','ALICE','ALPHA','ANKR','ANT','APE','AP
 'QTUM',
 'RAY',
 'REEF',
-'REN',
-'RLC',
+'REN']
+symbols_list5=['RLC',
 'ROSE',
 'RSR',
 'RUNE',
@@ -101,8 +103,8 @@ symbols_list=['1INCH','AAVE','ADA','ALGO','ALICE','ALPHA','ANKR','ANT','APE','AP
 'TOMO',
 'TRB',
 'TRX',
-'UNFI',
-'UNI',
+'UNFI']
+symbols_list6=['UNI',
 'VET',
 'WAVES',
 'WOO',
@@ -129,12 +131,12 @@ def hello_worldtest():
 def webhook():
     data=json.loads(request.data)
     symbol=data['symbol']
-    if data['signal']=="btcstart":
-        for s in range(len(symbols_list)):
-            text=symbols_list[s]+'test'
+    if data['signal']=="list1":
+        for s in range(len(symbols_list1)):
+            text=symbols_list1[s]+'test'
             bot.send_message(CHAT_ID, text)
-            url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list[s]+'USDT'+'&period=5m&limit=1'
-            url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list[s]+'USDT'+'&period=5m&limit=5'
+            url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=1'
+            url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=5'
             data=requests.get(url).json()
             data0=requests.get(url0).json()
             my_list2=[]
@@ -150,11 +152,36 @@ def webhook():
                 q=0
 
             if q>1.5:
-                text=symbols_list[s]+'signal'
+                text=symbols_list1[s]+'signal'
                 bot.send_message(CHAT_ID, text)
 
     return{"signal":"success"}
 
+    if data['signal']=="list2":
+        for s in range(len(symbols_list2)):
+            text=symbols_list2[s]+'test'
+            bot.send_message(CHAT_ID, text)
+            url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list2[s]+'USDT'+'&period=5m&limit=1'
+            url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list2[s]+'USDT'+'&period=5m&limit=5'
+            data=requests.get(url).json()
+            data0=requests.get(url0).json()
+            my_list2=[]
+            for i in range(5):
+                my_list2.append(round(float(data[i]['sumOpenInterest']),0))
+            my_min=min(my_list2)
+            last=round(float(data[0]['sumOpenInterest']),0)
+
+
+            if last > my_min:
+                q=round((last/my_min),3)
+            else:
+                q=0
+
+            if q>1.5:
+                text=symbols_list2[s]+'signal'
+                bot.send_message(CHAT_ID, text)
+
+    return{"signal":"success"}
 
 if __name__ == 'main':
     app.run()
