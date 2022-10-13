@@ -26,7 +26,6 @@ symbols_list=['1INCH','AAVE','ADA','ALGO','ALICE','ALPHA','ANKR','ANT','APE','AP
 'DGB',
 'DOGE',
 'DOT',
-'DUSK',
 'DYDX',
 'EGLD',
 'ENJ',
