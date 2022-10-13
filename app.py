@@ -155,7 +155,7 @@ def webhook():
                 text=symbols_list1[s]+'signal'
                 bot.send_message(CHAT_ID, text)
 
-    return{"signal":"success"}
+
 
     if data['signal']=="list2":
         for s in range(len(symbols_list2)):
