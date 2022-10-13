@@ -13,8 +13,8 @@ CHAT_ID='425745139'
 BOTTOKEN='5545278299:AAHIqGnUM6mrgB0fe8DWsUMZrrpDU1BQ8jI'
 bot=telebot.TeleBot(BOTTOKEN)
 
-symbols_list=['1INCH','AAVE','ADA','ALGO','ALICE','ALPHA','ANKR','ANT','APE','API3','AR','ARPA','ATA','ATOM','AUDIO','AVAX','AXS']
-'''
+symbols_list=['1INCH','AAVE','ADA','ALGO','ALICE','ALPHA','ANKR','ANT','APE','API3','AR','ARPA','ATA','ATOM','AUDIO','AVAX','AXS'
+
 ,'BAKE','BAL','BAND','BAT','BCH','BEL','BLZ','BNB','BNX','BTC','C98','CELO','CELR','CHR','CHZ','COMP','COTI','CRV',
 
 'CTK',
@@ -118,7 +118,7 @@ symbols_list=['1INCH','AAVE','ADA','ALGO','ALICE','ALPHA','ANKR','ANT','APE','AP
 'ZIL',
 
 ]
-'''
+
 @app.route("/")
 def hello_world():
     return "<p>Hello, World!</p>"
