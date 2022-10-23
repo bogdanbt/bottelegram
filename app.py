@@ -155,7 +155,7 @@ def webhook():
                 text=symbols_list1[s]+'signal'
                 bot.send_message(CHAT_ID, text)
         text='endtest1'
-        bot.send_message(CHAT_ID, text)
+        #bot.send_message(CHAT_ID, text)
         return{"signal":"success"}
 
 
@@ -184,7 +184,7 @@ def webhook():
                 text=symbols_list2[s]+'signal'
                 bot.send_message(CHAT_ID, text)
         text='endtest2'
-        bot.send_message(CHAT_ID, text)
+        #bot.send_message(CHAT_ID, text)
         return{"signal":"success"}
 
     if data['signal']=="list3":
@@ -211,7 +211,7 @@ def webhook():
                 text=symbols_list3[s]+'signal'
                 bot.send_message(CHAT_ID, text)
         text='endtest3'
-        bot.send_message(CHAT_ID, text)
+        #bot.send_message(CHAT_ID, text)
         return{"signal":"success"}
 
 
@@ -239,7 +239,7 @@ def webhook():
                 text=symbols_list4[s]+'signal'
                 bot.send_message(CHAT_ID, text)
         text='endtest4'
-        bot.send_message(CHAT_ID, text)
+        #bot.send_message(CHAT_ID, text)
         return{"signal":"success"}
 
     if data['signal']=="list5":
@@ -266,7 +266,7 @@ def webhook():
                 text=symbols_list5[s]+'signal'
                 bot.send_message(CHAT_ID, text)
         text='endtest5'
-        bot.send_message(CHAT_ID, text)
+        #bot.send_message(CHAT_ID, text)
         return{"signal":"success"}
 
     if data['signal']=="list6":
@@ -293,7 +293,7 @@ def webhook():
                 text=symbols_list6[s]+'signal'
                 bot.send_message(CHAT_ID, text)
         text='endtest6'
-        bot.send_message(CHAT_ID, text)
+        #bot.send_message(CHAT_ID, text)
         return{"signal":"success"}
 
 
