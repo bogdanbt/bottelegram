@@ -181,6 +181,104 @@ def webhook():
                 text=symbols_list2[s]+'signal'
                 bot.send_message(CHAT_ID, text)
 
+    if data['signal']=="list3":
+        for s in range(len(symbols_list3)):
+            text=symbols_list3[s]+'test'
+            bot.send_message(CHAT_ID, text)
+            url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list3[s]+'USDT'+'&period=5m&limit=1'
+            url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list3[s]+'USDT'+'&period=5m&limit=5'
+            data=requests.get(url).json()
+            data0=requests.get(url0).json()
+            my_list2=[]
+            for i in range(5):
+                my_list2.append(round(float(data[i]['sumOpenInterest']),0))
+            my_min=min(my_list2)
+            last=round(float(data[0]['sumOpenInterest']),0)
+
+
+            if last > my_min:
+                q=round((last/my_min),3)
+            else:
+                q=0
+
+            if q>1.5:
+                text=symbols_list3[s]+'signal'
+                bot.send_message(CHAT_ID, text)
+
+
+    if data['signal']=="list4":
+        for s in range(len(symbols_list4)):
+            text=symbols_list4[s]+'test'
+            bot.send_message(CHAT_ID, text)
+            url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list4[s]+'USDT'+'&period=5m&limit=1'
+            url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list4[s]+'USDT'+'&period=5m&limit=5'
+            data=requests.get(url).json()
+            data0=requests.get(url0).json()
+            my_list2=[]
+            for i in range(5):
+                my_list2.append(round(float(data[i]['sumOpenInterest']),0))
+            my_min=min(my_list2)
+            last=round(float(data[0]['sumOpenInterest']),0)
+
+
+            if last > my_min:
+                q=round((last/my_min),3)
+            else:
+                q=0
+
+            if q>1.5:
+                text=symbols_list4[s]+'signal'
+                bot.send_message(CHAT_ID, text)
+
+    if data['signal']=="list5":
+        for s in range(len(symbols_list5)):
+            text=symbols_list5[s]+'test'
+            bot.send_message(CHAT_ID, text)
+            url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list5[s]+'USDT'+'&period=5m&limit=1'
+            url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list5[s]+'USDT'+'&period=5m&limit=5'
+            data=requests.get(url).json()
+            data0=requests.get(url0).json()
+            my_list2=[]
+            for i in range(5):
+                my_list2.append(round(float(data[i]['sumOpenInterest']),0))
+            my_min=min(my_list2)
+            last=round(float(data[0]['sumOpenInterest']),0)
+
+
+            if last > my_min:
+                q=round((last/my_min),3)
+            else:
+                q=0
+
+            if q>1.5:
+                text=symbols_list5[s]+'signal'
+                bot.send_message(CHAT_ID, text)
+
+    if data['signal']=="list6":
+        for s in range(len(symbols_list6)):
+            text=symbols_list6[s]+'test'
+            bot.send_message(CHAT_ID, text)
+            url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list6[s]+'USDT'+'&period=5m&limit=1'
+            url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list6[s]+'USDT'+'&period=5m&limit=5'
+            data=requests.get(url).json()
+            data0=requests.get(url0).json()
+            my_list2=[]
+            for i in range(5):
+                my_list2.append(round(float(data[i]['sumOpenInterest']),0))
+            my_min=min(my_list2)
+            last=round(float(data[0]['sumOpenInterest']),0)
+
+
+            if last > my_min:
+                q=round((last/my_min),3)
+            else:
+                q=0
+
+            if q>1.5:
+                text=symbols_list6[s]+'signal'
+                bot.send_message(CHAT_ID, text)
+
+
     return{"signal":"success"}
 
 if __name__ == 'main':
