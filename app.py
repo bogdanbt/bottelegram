@@ -133,8 +133,8 @@ def webhook():
     symbol=data['symbol']
     if data['signal']=="list1":
         for s in range(len(symbols_list1)):
-            text=symbols_list1[s]+'test'
-            bot.send_message(CHAT_ID, text)
+            #text=symbols_list1[s]+'test'
+            #bot.send_message(CHAT_ID, text)
             url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=1'
             url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=5'
             data=requests.get(url).json()
@@ -154,14 +154,16 @@ def webhook():
             if q>1.5:
                 text=symbols_list1[s]+'signal'
                 bot.send_message(CHAT_ID, text)
+        text='endtest1'
+        bot.send_message(CHAT_ID, text)
         return{"signal":"success"}
 
 
 
     if data['signal']=="list2":
         for s in range(len(symbols_list2)):
-            text=symbols_list2[s]+'test'
-            bot.send_message(CHAT_ID, text)
+            #text=symbols_list2[s]+'test'
+            #bot.send_message(CHAT_ID, text)
             url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list2[s]+'USDT'+'&period=5m&limit=1'
             url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list2[s]+'USDT'+'&period=5m&limit=5'
             data=requests.get(url).json()
@@ -181,12 +183,14 @@ def webhook():
             if q>1.5:
                 text=symbols_list2[s]+'signal'
                 bot.send_message(CHAT_ID, text)
+        text='endtest2'
+        bot.send_message(CHAT_ID, text)
         return{"signal":"success"}
 
     if data['signal']=="list3":
         for s in range(len(symbols_list3)):
-            text=symbols_list3[s]+'test'
-            bot.send_message(CHAT_ID, text)
+            #text=symbols_list3[s]+'test'
+            #bot.send_message(CHAT_ID, text)
             url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list3[s]+'USDT'+'&period=5m&limit=1'
             url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list3[s]+'USDT'+'&period=5m&limit=5'
             data=requests.get(url).json()
@@ -206,13 +210,15 @@ def webhook():
             if q>1.5:
                 text=symbols_list3[s]+'signal'
                 bot.send_message(CHAT_ID, text)
+        text='endtest3'
+        bot.send_message(CHAT_ID, text)
         return{"signal":"success"}
 
 
     if data['signal']=="list4":
         for s in range(len(symbols_list4)):
-            text=symbols_list4[s]+'test'
-            bot.send_message(CHAT_ID, text)
+            #text=symbols_list4[s]+'test'
+            #bot.send_message(CHAT_ID, text)
             url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list4[s]+'USDT'+'&period=5m&limit=1'
             url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list4[s]+'USDT'+'&period=5m&limit=5'
             data=requests.get(url).json()
@@ -232,12 +238,14 @@ def webhook():
             if q>1.5:
                 text=symbols_list4[s]+'signal'
                 bot.send_message(CHAT_ID, text)
+        text='endtest4'
+        bot.send_message(CHAT_ID, text)
         return{"signal":"success"}
 
     if data['signal']=="list5":
         for s in range(len(symbols_list5)):
-            text=symbols_list5[s]+'test'
-            bot.send_message(CHAT_ID, text)
+            #text=symbols_list5[s]+'test'
+            #bot.send_message(CHAT_ID, text)
             url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list5[s]+'USDT'+'&period=5m&limit=1'
             url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list5[s]+'USDT'+'&period=5m&limit=5'
             data=requests.get(url).json()
@@ -257,12 +265,14 @@ def webhook():
             if q>1.5:
                 text=symbols_list5[s]+'signal'
                 bot.send_message(CHAT_ID, text)
+        text='endtest5'
+        bot.send_message(CHAT_ID, text)
         return{"signal":"success"}
 
     if data['signal']=="list6":
         for s in range(len(symbols_list6)):
-            text=symbols_list6[s]+'test'
-            bot.send_message(CHAT_ID, text)
+            #text=symbols_list6[s]+'test'
+            #bot.send_message(CHAT_ID, text)
             url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list6[s]+'USDT'+'&period=5m&limit=1'
             url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list6[s]+'USDT'+'&period=5m&limit=5'
             data=requests.get(url).json()
@@ -282,6 +292,8 @@ def webhook():
             if q>1.5:
                 text=symbols_list6[s]+'signal'
                 bot.send_message(CHAT_ID, text)
+        text='endtest6'
+        bot.send_message(CHAT_ID, text)
         return{"signal":"success"}
 
 
@@ -290,3 +302,6 @@ def webhook():
 if __name__ == 'main':
     app.run()
 
+
+#   https://telebotbogdan.herokuapp.com/webhook
+#   {"symbol":"Test","usdt":"5","signal":"list1"}
