@@ -154,6 +154,7 @@ def webhook():
             if q>1.5:
                 text=symbols_list1[s]+'signal'
                 bot.send_message(CHAT_ID, text)
+        return{"signal":"success"}
 
 
 
@@ -180,6 +181,7 @@ def webhook():
             if q>1.5:
                 text=symbols_list2[s]+'signal'
                 bot.send_message(CHAT_ID, text)
+        return{"signal":"success"}
 
     if data['signal']=="list3":
         for s in range(len(symbols_list3)):
@@ -204,6 +206,7 @@ def webhook():
             if q>1.5:
                 text=symbols_list3[s]+'signal'
                 bot.send_message(CHAT_ID, text)
+        return{"signal":"success"}
 
 
     if data['signal']=="list4":
@@ -229,6 +232,7 @@ def webhook():
             if q>1.5:
                 text=symbols_list4[s]+'signal'
                 bot.send_message(CHAT_ID, text)
+        return{"signal":"success"}
 
     if data['signal']=="list5":
         for s in range(len(symbols_list5)):
@@ -253,6 +257,7 @@ def webhook():
             if q>1.5:
                 text=symbols_list5[s]+'signal'
                 bot.send_message(CHAT_ID, text)
+        return{"signal":"success"}
 
     if data['signal']=="list6":
         for s in range(len(symbols_list6)):
@@ -277,9 +282,10 @@ def webhook():
             if q>1.5:
                 text=symbols_list6[s]+'signal'
                 bot.send_message(CHAT_ID, text)
+        return{"signal":"success"}
 
 
-    return{"signal":"success"}
+    #return{"signal":"success"}
 
 if __name__ == 'main':
     app.run()
