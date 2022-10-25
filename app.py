@@ -142,22 +142,25 @@ def webhook():
 
             data=requests.get(url).json()
             data0=requests.get(url0).json()
+            Vol=round(float(data[1]['buyVol']),0)+round(float(data[1]['sellVol']),0)
+            last=round(float(data[0]['buyVol']),0)+round(float(data[0]['sellVol']),0)
+            '''
             my_list2=[]
             for i in range(5):
                 my_list2.append(round(float(data[i]['buyVol']),0)+float(data[i]['sellVol']) )
             my_min=min(my_list2)
             last=round(float(data[0]['buyVol']),0)+round(float(data[0]['sellVol']),0)
+'''
 
-
-            if last > my_min:
-                q=round((last/my_min),3)
+            if last > Vol:
+                q=round((last/Vol),3)
             else:
                 q=0
 
             if q>2.5:
                 text=symbols_list1[s]+'signal'
                 bot.send_message(CHAT_ID, text)
-        text='endtest1'
+        text='endtest1'+Vol+'/'+last
         bot.send_message(CHAT_ID, text)
         return{"signal":"success"}
     if data['signal']=="list2":
