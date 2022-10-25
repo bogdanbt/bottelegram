@@ -157,7 +157,7 @@ def webhook():
             else:
                 q=0
 
-            if q>2.5:
+            if q>4:
                 text=symbols_list1[s]+'signal'
                 bot.send_message(CHAT_ID, text)
         text='endtest1'+Vol+'/'+last
