@@ -135,15 +135,18 @@ def webhook():
         for s in range(len(symbols_list1)):
             #text=symbols_list1[s]+'test'
             #bot.send_message(CHAT_ID, text)
-            url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=1'
-            url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=5'
+            url0='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list1[s]+'&period=5m&limit=1'
+            #url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=1'
+            #url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=5'
+            url='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list1[s]+'&period=5m&limit=10'
+
             data=requests.get(url).json()
             data0=requests.get(url0).json()
             my_list2=[]
             for i in range(5):
-                my_list2.append(round(float(data[i]['sumOpenInterest']),0))
+                my_list2.append(round(float(data[i]['buyVol']),0)+round(float(data[0]['sellVol']) ))
             my_min=min(my_list2)
-            last=round(float(data[0]['sumOpenInterest']),0)
+            last=round(float(data[0]['buyVol']),0)+round(float(data[0]['sellVol']),0)
 
 
             if last > my_min:
@@ -151,15 +154,159 @@ def webhook():
             else:
                 q=0
 
-            if q>1.5:
+            if q>2.5:
                 text=symbols_list1[s]+'signal'
                 bot.send_message(CHAT_ID, text)
         text='endtest1'
-        #bot.send_message(CHAT_ID, text)
+        bot.send_message(CHAT_ID, text)
+        return{"signal":"success"}
+    if data['signal']=="list2":
+        for s in range(len(symbols_list2)):
+            #text=symbols_list1[s]+'test'
+            #bot.send_message(CHAT_ID, text)
+            url0='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list2[s]+'&period=5m&limit=1'
+            #url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=1'
+            #url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=5'
+            url='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list2[s]+'&period=5m&limit=10'
+
+            data=requests.get(url).json()
+            data0=requests.get(url0).json()
+            my_list2=[]
+            for i in range(5):
+                my_list2.append(round(float(data[i]['buyVol']),0)+round(float(data[0]['sellVol']) ))
+            my_min=min(my_list2)
+            last=round(float(data[0]['buyVol']),0)+round(float(data[0]['sellVol']),0)
+
+
+            if last > my_min:
+                q=round((last/my_min),3)
+            else:
+                q=0
+
+            if q>2.5:
+                text=symbols_list2[s]+'signal'
+                bot.send_message(CHAT_ID, text)
+        text='endtest2'
+        bot.send_message(CHAT_ID, text)
+        return{"signal":"success"}
+    if data['signal']=="list3":
+        for s in range(len(symbols_list3)):
+            #text=symbols_list1[s]+'test'
+            #bot.send_message(CHAT_ID, text)
+            url0='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list3[s]+'&period=5m&limit=1'
+            #url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=1'
+            #url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=5'
+            url='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list3[s]+'&period=5m&limit=10'
+
+            data=requests.get(url).json()
+            data0=requests.get(url0).json()
+            my_list2=[]
+            for i in range(5):
+                my_list2.append(round(float(data[i]['buyVol']),0)+round(float(data[0]['sellVol']) ))
+            my_min=min(my_list2)
+            last=round(float(data[0]['buyVol']),0)+round(float(data[0]['sellVol']),0)
+
+
+            if last > my_min:
+                q=round((last/my_min),3)
+            else:
+                q=0
+
+            if q>2.5:
+                text=symbols_list3[s]+'signal'
+                bot.send_message(CHAT_ID, text)
+        text='endtest3'
+        bot.send_message(CHAT_ID, text)
+        return{"signal":"success"}
+    if data['signal']=="list4":
+        for s in range(len(symbols_list4)):
+            #text=symbols_list1[s]+'test'
+            #bot.send_message(CHAT_ID, text)
+            url0='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list4[s]+'&period=5m&limit=1'
+            #url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=1'
+            #url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=5'
+            url='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list4[s]+'&period=5m&limit=10'
+
+            data=requests.get(url).json()
+            data0=requests.get(url0).json()
+            my_list2=[]
+            for i in range(5):
+                my_list2.append(round(float(data[i]['buyVol']),0)+round(float(data[0]['sellVol']) ))
+            my_min=min(my_list2)
+            last=round(float(data[0]['buyVol']),0)+round(float(data[0]['sellVol']),0)
+
+
+            if last > my_min:
+                q=round((last/my_min),3)
+            else:
+                q=0
+
+            if q>2.5:
+                text=symbols_list4[s]+'signal'
+                bot.send_message(CHAT_ID, text)
+        text='endtest4'
+        bot.send_message(CHAT_ID, text)
+        return{"signal":"success"}
+    if data['signal']=="list5":
+        for s in range(len(symbols_list5)):
+            #text=symbols_list1[s]+'test'
+            #bot.send_message(CHAT_ID, text)
+            url0='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list5[s]+'&period=5m&limit=1'
+            #url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=1'
+            #url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=5'
+            url='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list5[s]+'&period=5m&limit=10'
+
+            data=requests.get(url).json()
+            data0=requests.get(url0).json()
+            my_list2=[]
+            for i in range(5):
+                my_list2.append(round(float(data[i]['buyVol']),0)+round(float(data[0]['sellVol']) ))
+            my_min=min(my_list2)
+            last=round(float(data[0]['buyVol']),0)+round(float(data[0]['sellVol']),0)
+
+
+            if last > my_min:
+                q=round((last/my_min),3)
+            else:
+                q=0
+
+            if q>2.5:
+                text=symbols_list5[s]+'signal'
+                bot.send_message(CHAT_ID, text)
+        text='endtest5'
+        bot.send_message(CHAT_ID, text)
+        return{"signal":"success"}
+    if data['signal']=="list6":
+        for s in range(len(symbols_list6)):
+            #text=symbols_list1[s]+'test'
+            #bot.send_message(CHAT_ID, text)
+            url0='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list6[s]+'&period=5m&limit=1'
+            #url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=1'
+            #url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=5'
+            url='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list6[s]+'&period=5m&limit=10'
+
+            data=requests.get(url).json()
+            data0=requests.get(url0).json()
+            my_list2=[]
+            for i in range(5):
+                my_list2.append(round(float(data[i]['buyVol']),0)+round(float(data[0]['sellVol']) ))
+            my_min=min(my_list2)
+            last=round(float(data[0]['buyVol']),0)+round(float(data[0]['sellVol']),0)
+
+
+            if last > my_min:
+                q=round((last/my_min),3)
+            else:
+                q=0
+
+            if q>2.5:
+                text=symbols_list6[s]+'signal'
+                bot.send_message(CHAT_ID, text)
+        text='endtest6'
+        bot.send_message(CHAT_ID, text)
         return{"signal":"success"}
 
-
-
+'''
     if data['signal']=="list2":
         for s in range(len(symbols_list2)):
             #text=symbols_list2[s]+'test'
@@ -296,7 +443,7 @@ def webhook():
         #bot.send_message(CHAT_ID, text)
         return{"signal":"success"}
 
-
+'''
     #return{"signal":"success"}
 
 if __name__ == 'main':
