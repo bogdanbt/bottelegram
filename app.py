@@ -135,16 +135,16 @@ def webhook():
         for s in range(len(symbols_list1)):
             #text=symbols_list1[s]+'test'
             #bot.send_message(CHAT_ID, text)
-            url0='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list1[s]+'&period=5m&limit=1'
+            url0='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=1'
             #url0='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=1'
             #url='https://www.binance.com/futures/data/openInterestHist?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=5'
-            url='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list1[s]+'&period=5m&limit=10'
+            url='https://www.binance.com/futures/data/takerlongshortRatio?symbol='+symbols_list1[s]+'USDT'+'&period=5m&limit=5'
 
             data=requests.get(url).json()
             data0=requests.get(url0).json()
             my_list2=[]
             for i in range(5):
-                my_list2.append(round(float(data[i]['buyVol']),0)+round(float(data[i]['sellVol']) ))
+                my_list2.append(round(float(data[i]['buyVol']),0)+float(data[i]['sellVol']) )
             my_min=min(my_list2)
             last=round(float(data[0]['buyVol']),0)+round(float(data[0]['sellVol']),0)
 
