@@ -26,7 +26,7 @@ def webhook():
     data=requests.get(url).json()
     Vol=round(float(data[1]['buyVol']),0)+round(float(data[1]['sellVol']),0)
     last=round(float(data[0]['buyVol']),0)+round(float(data[0]['sellVol']),0)
-    text=symbols+'signal'+Vol
+    text=symbols+'signal'+str(Vol)
     bot.send_message(CHAT_ID, text)
     return{"signal":"success"}
 
